@@ -12,8 +12,8 @@ import apl.sh.controller.config.BdConnection;
 import apl.sh.controller.config.DbException;
 import apl.sh.controller.config.DbIntegrityException;
 import apl.sh.controller.interfaces.ProdutoListaDAO;
+import apl.sh.model.ListaCompra;
 import apl.sh.model.Produto;
-import apl.sh.model.ProdutoLista;
 
 public class ProdutoListaOp implements ProdutoListaDAO{
 	private Connection conn;
@@ -72,16 +72,16 @@ public class ProdutoListaOp implements ProdutoListaDAO{
 	}
 
 	@Override
-	public List<Produto> ListarPorSupermercado(Integer id) {
+	public ListaCompra ListarPorSupermercado(Integer id) {
 		PreparedStatement st = null;
 		ResultSet rs = null;
 		try {
 			st = conn.prepareStatement("SELECT * FROM ProdutoLista WHERE supermercadoId = ?");
 			st.setInt(1, id);
+			
 			rs = st.executeQuery();
 
-			List<Produto> list = new ArrayList<>();
-
+			ListaCompra list = new ListaCompra();
 			while (rs.next()) {
 				Produto produto = new Produto();
 				produto.setId(rs.getInt("id"));
@@ -89,7 +89,7 @@ public class ProdutoListaOp implements ProdutoListaDAO{
 				produto.setValor(rs.getDouble("valor"));
 				produto.setQuantidade(rs.getInt("quantidade"));
 				produto.setSupermercadoId(rs.getInt("supermercadoId"));
-				list.add(produto);
+				list.inserirProduto(produto);
 			}
 			return list;
 		}

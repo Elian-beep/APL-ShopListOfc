@@ -6,6 +6,7 @@ import apl.sh.controller.interfaces.ProdutoDAO;
 import apl.sh.controller.interfaces.ProdutoListaDAO;
 import apl.sh.controller.interfaces.SupermercadoDAO;
 import apl.sh.model.Cliente;
+import apl.sh.model.ListaCompra;
 import apl.sh.model.Produto;
 
 public class MainDB {
@@ -36,10 +37,10 @@ public class MainDB {
 		//---------------------ProdutoLista----------------
 //		Produto prod = produtoController.Listar(1);
 //		produtoListaController.Cadastrar(prod);
-//		produtoListaController.Excluir(1);
+//		produtoListaController.Excluir(2);
 //		System.out.println(produtoListaController.ListarPorSupermercado(1));
-//		System.out.println(produtoListaController.ListarTodos());
-		
+		ListaCompra listaDeCompras = produtoListaController.ListarPorSupermercado(4);
+		listaDeCompras.exibirLista();
 	}
 
 }

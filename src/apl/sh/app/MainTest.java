@@ -8,7 +8,6 @@ import apl.sh.controller.interfaces.SupermercadoDAO;
 import apl.sh.model.Cliente;
 import apl.sh.model.ListaCompra;
 import apl.sh.model.Produto;
-import apl.sh.model.ProdutoLista;
 import apl.sh.model.Supermercado;
 import apl.sh.model.services.GeralLista;
 
@@ -27,21 +26,19 @@ public class MainTest {
 		Cliente cliente = new Cliente(null, "usuario teste", "92985878449", "elianoliver101@gmail.com");
 		
 		//O PRODUTO ESCOLHIDO PARA IR PARA AS LISTAS DEVE SER UM NOVO OBJETO
-		ProdutoLista itemNovinha = new ProdutoLista(1, "Arroz", 5.46, 2, 1);
-		ProdutoLista itemNovinha2 = new ProdutoLista(2, "Macarrão", 3.20, 1, 1);
-		ProdutoLista itemDM = new ProdutoLista(3, "Arroz", 4.35, 2, 1);
+		Produto itemNovinha = new Produto(1, "Arroz", 5.46, 2, 1);
+		Produto itemNovinha2 = new Produto(2, "Macarrão", 3.20, 1, 1);
+		Produto itemDM = new Produto(3, "Arroz", 4.35, 2, 1);
 		
 		//CRIANDO UMA LISTA PARA CADA SUPERMERCADO DIFERENTE
-		ListaCompra listaNovinha = new ListaCompra("Novinha");
+		ListaCompra listaNovinha = new ListaCompra();
 		listaNovinha.inserirProduto(itemNovinha);
 		listaNovinha.inserirProduto(itemNovinha2);
-		ListaCompra listaDM = new ListaCompra("DM");
+		ListaCompra listaDM = new ListaCompra();
 		listaDM.inserirProduto(itemDM);
 		
 		System.out.println("-------------------EXIBINDO OS PRODUTOS-------------------");
-		System.out.println("Lista Novinha: ");
 		listaNovinha.exibirLista();
-		System.out.println("\nLista DM: ");
 		listaDM.exibirLista();
 		System.out.println("----------------------------------------------------------");
 		

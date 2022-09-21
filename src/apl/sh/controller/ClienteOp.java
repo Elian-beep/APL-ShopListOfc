@@ -49,8 +49,6 @@ public class ClienteOp implements ClienteDAO{
 			BdConnection.closeStatement(st);
 		}
 	}
-
-
 	
 	@Override
 	public void Alterar(Cliente cliente) {
