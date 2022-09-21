@@ -7,6 +7,8 @@ public class Produto {
 	private Integer quantidade;
 	private Integer supermercadoId;
 	
+	public Produto() {}
+	
 	public Produto(Integer id, String nome, Double valor, Integer quantidade, Integer supermercadoId) {
 		super();
 		this.id = id;
@@ -46,4 +48,12 @@ public class Produto {
 	public void setSupermercadoId(Integer supermercadoId) {
 		this.supermercadoId = supermercadoId;
 	}
+
+	@Override
+	public String toString() {
+		return "Produto [id=" + id + ", nome=" + nome + ", valor=" + valor + ", quantidade=" + quantidade
+				+ ", supermercadoId=" + supermercadoId + "]\n";
+	}
+	
+	
 }

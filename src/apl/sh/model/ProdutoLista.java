@@ -4,15 +4,15 @@ import java.util.Objects;
 
 public class ProdutoLista {
 	private Integer id;
-	private String nomeProduto;
+	private String nome;
 	private Double valor;
 	private Integer quantidade;
 	private Integer supermercadoId;
 	
-	public ProdutoLista(Integer id, String nomeProduto, Double valor, Integer quantidade,
+	public ProdutoLista(Integer id, String nome, Double valor, Integer quantidade,
 			Integer supermercadoId) {
 		this.id = id;
-		this.nomeProduto = nomeProduto;
+		this.nome = nome;
 		this.valor = valor;
 		this.quantidade = quantidade;
 		this.supermercadoId = supermercadoId;
@@ -24,11 +24,11 @@ public class ProdutoLista {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getNomeProduto() {
-		return nomeProduto;
+	public String getNome() {
+		return nome;
 	}
-	public void setNomeProduto(String nomeProduto) {
-		this.nomeProduto = nomeProduto;
+	public void setNome(String nomeProduto) {
+		this.nome = nomeProduto;
 	}
 	public Double getValor() {
 		return valor;
@@ -51,7 +51,7 @@ public class ProdutoLista {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, nomeProduto, quantidade, supermercadoId, valor);
+		return Objects.hash(id, nome, quantidade, supermercadoId, valor);
 	}
 
 	@Override
@@ -63,7 +63,7 @@ public class ProdutoLista {
 		if (getClass() != obj.getClass())
 			return false;
 		ProdutoLista other = (ProdutoLista) obj;
-		return Objects.equals(id, other.id) && Objects.equals(nomeProduto, other.nomeProduto)
+		return Objects.equals(id, other.id) && Objects.equals(nome, other.nome)
 				&& Objects.equals(quantidade, other.quantidade) && Objects.equals(supermercadoId, other.supermercadoId)
 				&& Objects.equals(valor, other.valor);
 	}

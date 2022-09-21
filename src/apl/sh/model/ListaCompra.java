@@ -34,7 +34,7 @@ public class ListaCompra {
 
 	public void exibirLista() {
 		for (ProdutoLista produtoDaLista : produtos) {
-			System.out.println(produtoDaLista.getNomeProduto()+" - "+produtoDaLista.getValor());
+			System.out.println(produtoDaLista.getNome()+" - "+produtoDaLista.getValor());
 		}
 	}
 	
