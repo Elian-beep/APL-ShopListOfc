@@ -10,5 +10,6 @@ public class ProgramMain {
 		ClienteArea clienteArea = new ClienteArea();
 		
 		clienteArea.menuPrincipal();
+		return;
 	}
 }

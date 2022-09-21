@@ -9,7 +9,7 @@ import apl.sh.model.Cliente;
 import apl.sh.model.ListaCompra;
 import apl.sh.model.Produto;
 
-public class MainDB {
+public class MainDBTest {
 
 	public static void main(String[] args) {
 		// CONTROLLERS[
