@@ -39,8 +39,8 @@ public class MainDB {
 //		produtoListaController.Cadastrar(prod);
 //		produtoListaController.Excluir(2);
 //		System.out.println(produtoListaController.ListarPorSupermercado(1));
-		ListaCompra listaDeCompras = produtoListaController.ListarPorSupermercado(4);
-		listaDeCompras.exibirLista();
+//		ListaCompra listaDeCompras = produtoListaController.ListarPorSupermercado(4);
+//		listaDeCompras.exibirLista();
 	}
 
 }
