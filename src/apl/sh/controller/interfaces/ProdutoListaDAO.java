@@ -8,6 +8,6 @@ import apl.sh.model.Produto;
 public interface ProdutoListaDAO {
 	public void Cadastrar(Produto produto);
 	public void Excluir(Integer id);
-	public ListaCompra ListarPorSupermercado(Integer id);
+	public List<Produto> ListarPorSupermercado(Integer id);
 	public List<Produto> ListarTodos();
 }

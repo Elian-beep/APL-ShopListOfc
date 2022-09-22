@@ -72,7 +72,7 @@ public class ProdutoListaOp implements ProdutoListaDAO{
 	}
 
 	@Override
-	public ListaCompra ListarPorSupermercado(Integer id) {
+	public List<Produto> ListarPorSupermercado(Integer id) {
 		PreparedStatement st = null;
 		ResultSet rs = null;
 		try {
@@ -81,7 +81,7 @@ public class ProdutoListaOp implements ProdutoListaDAO{
 			
 			rs = st.executeQuery();
 
-			ListaCompra list = new ListaCompra();
+			List<Produto> list = new ArrayList<>();
 			while (rs.next()) {
 				Produto produto = new Produto();
 				produto.setId(rs.getInt("id"));
@@ -89,7 +89,7 @@ public class ProdutoListaOp implements ProdutoListaDAO{
 				produto.setValor(rs.getDouble("valor"));
 				produto.setQuantidade(rs.getInt("quantidade"));
 				produto.setSupermercadoId(rs.getInt("supermercadoId"));
-				list.inserirProduto(produto);
+				list.add(produto);
 			}
 			return list;
 		}

@@ -9,6 +9,7 @@ public class ProgramMain {
 		Locale.setDefault(Locale.US);
 		ClienteArea clienteArea = new ClienteArea();
 		
+		clienteArea.limparConsole();
 		clienteArea.menuPrincipal();
 		return;
 	}
