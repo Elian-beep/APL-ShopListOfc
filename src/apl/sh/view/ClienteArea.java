@@ -9,8 +9,10 @@ import apl.sh.controller.interfaces.ProdutoDAO;
 import apl.sh.controller.interfaces.ProdutoListaDAO;
 import apl.sh.controller.interfaces.SupermercadoDAO;
 import apl.sh.model.Cliente;
+import apl.sh.model.ListaCompra;
 import apl.sh.model.Produto;
 import apl.sh.model.Supermercado;
+import apl.sh.model.services.GeralLista;
 
 public class ClienteArea {
 	private static final Integer clienteId = 1;
@@ -195,7 +197,7 @@ public class ClienteArea {
 		System.out.println("-----------LISTA: "+supermercado.getNome()+"-----------");
 		List<Produto> produtos = produtoListaController.ListarPorSupermercado(supermercadoId);
 		for (Produto produto : produtos) {
-			System.out.println(produto);
+			System.out.println(produto+" ("+produto.getQuantidade()+")");
 		}
 		
 		System.out.println();
@@ -212,7 +214,9 @@ public class ClienteArea {
 		}
 		switch (opc) {
 		case 997:
-			//EXIBIR TOTAL
+			limparConsole();
+			System.out.println("|TOTAL DA LISTA: "+String.format("%.2f", gerarTotal(supermercadoId))+"|\n\n");
+			exibirLista(supermercadoId);
 			break;
 		case 998:
 			//REMOVER ITEM
@@ -222,6 +226,15 @@ public class ClienteArea {
 			System.out.println("<<OPÇÃO INVÁLIDA, DIGITE NOVEMENTE>>");
 			exibirLista(supermercadoId);
 		}
+	}
+	
+	public double gerarTotal(int supermercadoId){
+		ListaCompra listaDeCompra = new ListaCompra();
+		List<Produto> produtosDaLista = produtoListaController.ListarPorSupermercado(supermercadoId);
+		for (Produto produto : produtosDaLista) {
+			listaDeCompra.inserirProduto(produto);
+		}
+		return new GeralLista().valorTotal(listaDeCompra);
 	}
 	
 	public void limparConsole() {
