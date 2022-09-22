@@ -11,7 +11,6 @@ import apl.sh.controller.config.BdConnection;
 import apl.sh.controller.config.DbException;
 import apl.sh.controller.interfaces.ProdutoDAO;
 import apl.sh.model.Produto;
-import apl.sh.model.Supermercado;
 
 public class ProdutoOp implements ProdutoDAO{
 

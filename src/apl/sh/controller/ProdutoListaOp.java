@@ -12,7 +12,6 @@ import apl.sh.controller.config.BdConnection;
 import apl.sh.controller.config.DbException;
 import apl.sh.controller.config.DbIntegrityException;
 import apl.sh.controller.interfaces.ProdutoListaDAO;
-import apl.sh.model.ListaCompra;
 import apl.sh.model.Produto;
 
 public class ProdutoListaOp implements ProdutoListaDAO{

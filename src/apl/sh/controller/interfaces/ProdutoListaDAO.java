@@ -2,7 +2,6 @@ package apl.sh.controller.interfaces;
 
 import java.util.List;
 
-import apl.sh.model.ListaCompra;
 import apl.sh.model.Produto;
 
 public interface ProdutoListaDAO {
