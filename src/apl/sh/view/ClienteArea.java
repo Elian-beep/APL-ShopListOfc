@@ -219,7 +219,8 @@ public class ClienteArea {
 			exibirLista(supermercadoId);
 			break;
 		case 998:
-			//REMOVER ITEM
+			limparConsole();
+			removerDaLista(supermercadoId);
 			break;
 		default:
 			limparConsole();
@@ -235,6 +236,38 @@ public class ClienteArea {
 			listaDeCompra.inserirProduto(produto);
 		}
 		return new GeralLista().valorTotal(listaDeCompra);
+	}
+	
+	public void removerDaLista(int supermercadoId) {
+		System.out.println("");
+		List<Produto> produtos = produtoListaController.ListarPorSupermercado(supermercadoId);
+		for (Produto produto : produtos) {
+			System.out.println(produto+" ("+produto.getQuantidade()+")");
+		}
+		System.out.println("[999] - CANCELAR\n");
+		System.out.printf("Número do produto a ser excluido: ");
+		int opc = sc.nextInt();
+		sc.nextLine();
+		if (opc == 999) {
+			limparConsole();
+			exibirLista(supermercadoId);
+			return;
+		}
+		boolean find = false;
+		for (Produto produto : produtos) {
+			if (opc == produto.getId()) {
+				find = true;
+				produtoListaController.Excluir(opc);
+				limparConsole();
+				System.out.println("|PRODUTO REMOVIDO DA LISTA|");
+				exibirLista(supermercadoId);
+			}
+		}
+		if (!find) {
+			limparConsole();
+			System.out.println("<<OPÇÃO INVÁLIDA, DIGITE NOVEMENTE>>");
+			removerDaLista(supermercadoId);
+		}
 	}
 	
 	public void limparConsole() {
